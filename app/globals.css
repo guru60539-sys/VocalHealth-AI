@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius: var(--radius);
+}
+
+:root {
+  color-scheme: light;
+  --radius: 1rem;
+  --background: #f5f8f7;
+  --foreground: #172b2b;
+  --card: #ffffff;
+  --card-foreground: #172b2b;
+  --popover: #ffffff;
+  --popover-foreground: #172b2b;
+  --primary: #087f72;
+  --primary-foreground: #ffffff;
+  --secondary: #e8f4f1;
+  --secondary-foreground: #14584f;
+  --muted: #edf3f1;
+  --muted-foreground: #687b77;
+  --accent: #e3f3ef;
+  --accent-foreground: #14584f;
+  --destructive: #dc2626;
+  --border: #dce7e3;
+  --input: #dce7e3;
+  --ring: rgba(8, 127, 114, 0.4);
+  --chart-1: #2dd4bf;
+  --chart-2: #60a5fa;
+  --chart-3: #a78bfa;
+  --chart-4: #14b8a6;
+  --chart-5: #0ea5e9;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0d1918;
+  --foreground: #e8f2ef;
+  --card: #132321;
+  --card-foreground: #e8f2ef;
+  --popover: #172825;
+  --popover-foreground: #e8f2ef;
+  --primary: #43c3ad;
+  --primary-foreground: #08201b;
+  --secondary: #1a3430;
+  --secondary-foreground: #c0e9df;
+  --muted: #1a2b28;
+  --muted-foreground: #9aada8;
+  --accent: #203a35;
+  --accent-foreground: #c0e9df;
+  --destructive: #f87171;
+  --border: #29413c;
+  --input: #29413c;
+  --ring: rgba(67, 195, 173, 0.45);
+  --chart-1: #2dd4bf;
+  --chart-2: #60a5fa;
+  --chart-3: #a78bfa;
+  --chart-4: #34d399;
+  --chart-5: #93c5fd;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 8% 0%, rgba(16, 185, 129, 0.08), transparent 24%),
+      radial-gradient(circle at 95% 12%, rgba(45, 212, 191, 0.06), transparent 20%);
+    background-attachment: fixed;
+    font-feature-settings: "ss01" on;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at 8% 0%, rgba(45, 212, 191, 0.1), transparent 24%),
+      radial-gradient(circle at 95% 12%, rgba(16, 185, 129, 0.07), transparent 20%);
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    background: rgba(45, 212, 191, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
